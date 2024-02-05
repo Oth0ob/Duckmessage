@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>message</title>
+       <!--  <link href="proj.css" rel="stylesheet">-->
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <style>
+        
+        /* iPhone X, XS, 11 Pro */
+@media (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  /* CSS styles specific to iPhone X, XS, 11 Pro */
+}
+
+/* iPhone XR, 11 */
+@media (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+  /* CSS styles specific to iPhone XR, 11 */
+}
+
+/* iPhone 12, 12 Pro */
+@media (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+  /* CSS styles specific to iPhone 12, 12 Pro */
+}
+
+/* iPhone 12 mini */
+@media (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) {
+  /* CSS styles specific to iPhone 12 mini */
+}
+
+body{
+    background-image: url("background.jpeg");
+}
+  
+h1{
+    font-size: 250%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /*maybe change*/
+    color:rgb(83, 47, 0); /*maybe change*/
+    text-align: center;
+}
+            
+.image-container img{
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: -140px;
+}
+            
+.button{
+    display: block;
+    margin: 1% auto;
+    padding: 10px 20px;
+    background-color: rgb(255, 250, 202);
+    color: black;
+    border: 3px solid;
+    border-radius: 10px;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#addtext{
+    display: none;
+    font-size: 120%;
+    font-family:tahoma;
+    text-align: center;
+}
+
+
+    </style>
+    <body>
+        <br>
+        <h1 id="message">Hi Hajoory ! do you wanna go out with me ?</h1>
+        <div class = "image-container">
+        <img id = "image" src="https://media2.giphy.com/media/SqH31WtTaFNxf8wxs5/giphy_s.gif?cid=6c09b9523vyg0f5dwyf2z4sjybye7dspzve80m0qjagfviu5&ep=v1_internal_gif_by_id&rid=giphy_s.gif&ct=s">
+    </div>
+    <h2 id = "addtext">لعيونك أسوي مية موقع</h2>
+
+    <button class = "button" >yes</button>
+    <button class ="button" >Of course !</button>
+    <button class ="button">Sure!!!!!</button>
+
+    <audio id = "audio" src="GALA - Freed from desire [Official Video].mp3" controls></audio>
+    <div id="button-container"></div>
+
+
+        <script>const buttons = document.getElementsByClassName('button');
+            const image = document.getElementById('image');
+            const audio = document.getElementById('audio');
+            const message = document.getElementById('message');
+            const addtext = document.getElementById('addtext');
+            const imageUrls = [
+                'bgred.jpg',
+                'bggreen.jpg',
+                'bgblue.jpg',
+                'bgyellow.jpg'
+              ];
+              
+              let currentIndex = 0;
+              let intervalId = null;
+              
+              function changeBackground() {
+                const imageUrl = imageUrls[currentIndex];
+                document.body.style.backgroundImage = `url(${imageUrl})`;
+                currentIndex = (currentIndex + 1) % imageUrls.length;
+              }
+              
+              function startImageRotation() {
+                if (intervalId) {
+                  clearInterval(intervalId);
+                }
+                intervalId = setInterval(changeBackground, 500);
+              }
+            
+              function changemessagecolor(){
+                message.style.color = 'black';
+              }
+              
+              function changetext(){
+                message.textContent = 'What a joy!';
+              }
+            
+              function showaddtext(){
+                addtext.style.display = 'block';
+              }
+            
+            
+              function hidebuttons(){
+                for (let i = 0 ; i < buttons.length ; i++){
+                    buttons[i].style.display = 'none';
+                }
+              }
+            
+            for (let i = 0;i<buttons.length;i++){
+                buttons[i].addEventListener('click',function(){
+                    image.src = 'https://media4.giphy.com/media/SqH31WtTaFNxf8wxs5/giphy.gif';
+                    audio.currentTime = 58;
+                    audio.play();
+                    startImageRotation();
+                    changemessagecolor();
+                    changetext();
+                    hidebuttons();
+                    showaddtext();
+            });}   </script>
+    </body>
+</html>
